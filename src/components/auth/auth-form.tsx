@@ -50,8 +50,8 @@ export function AuthForm({ mode }: { mode: AuthMode }) {
   const title = mode === "login" ? "Inicia sesión" : "Crea tu cuenta";
 
   return (
-    <section className="container-site py-16">
-      <div className="mx-auto max-w-md rounded-3xl border border-white/10 bg-white/5 p-6 md:p-8">
+    <section className="container-site py-10 sm:py-16">
+      <div className="mx-auto max-w-md rounded-2xl border border-white/10 bg-white/5 p-4 sm:rounded-3xl sm:p-6 md:p-8">
         <h1 className="text-2xl font-semibold">{title}</h1>
         <p className="mt-2 text-sm text-zinc-300">
           {mode === "login"

@@ -15,8 +15,8 @@ export default async function HomePage() {
       <Hero />
 
       <section className="container-site">
-        <div className="mb-6 flex items-center justify-between">
-          <h2 className="text-2xl font-semibold md:text-3xl">Experiencias destacadas</h2>
+        <div className="mb-6 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+          <h2 className="text-xl font-semibold sm:text-2xl md:text-3xl">Experiencias destacadas</h2>
           <Link
             href="/experiencias"
             className="inline-flex items-center gap-2 text-sm text-amber-300 hover:text-amber-200"
@@ -26,7 +26,7 @@ export default async function HomePage() {
           </Link>
         </div>
 
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 sm:gap-5 md:grid-cols-2 lg:grid-cols-3">
           {featured.map((experience) => (
             <ExperienceCard key={experience.id} experience={experience} />
           ))}

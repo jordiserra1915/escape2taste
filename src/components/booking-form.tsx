@@ -50,9 +50,9 @@ export function BookingForm({ experiences }: { experiences: Experience[] }) {
   }
 
   return (
-    <section id="reserva" className="container-site mt-20">
-      <div className="rounded-3xl border border-white/10 bg-zinc-950/60 p-6 md:p-8">
-        <h2 className="text-2xl font-semibold">Reserva tu experiencia</h2>
+    <section id="reserva" className="container-site mt-12 sm:mt-20">
+      <div className="rounded-2xl border border-white/10 bg-zinc-950/60 p-4 sm:rounded-3xl sm:p-6 md:p-8">
+        <h2 className="text-xl font-semibold sm:text-2xl">Reserva tu experiencia</h2>
         <p className="mt-2 text-sm text-zinc-300">
           Te confirmamos disponibilidad por email en menos de 24h.
         </p>

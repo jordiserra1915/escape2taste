@@ -23,7 +23,7 @@ export default async function ExperienceDetailPage({ params }: Props) {
   const { longDescription, highlights, essentialTips } = getExperienceContent(experience);
 
   return (
-    <article className="container-site py-12 pb-20">
+    <article className="container-site py-8 pb-16 sm:py-12 sm:pb-20">
       <Link
         href="/experiencias"
         className="inline-flex items-center gap-2 text-sm text-amber-300 hover:text-amber-200"
@@ -32,7 +32,7 @@ export default async function ExperienceDetailPage({ params }: Props) {
         Volver al mapa de destinos
       </Link>
 
-      <div className="mt-8 grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+      <div className="mt-6 grid gap-6 sm:mt-8 sm:gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
         <div>
           <div className="relative aspect-[16/10] overflow-hidden rounded-3xl border border-white/10">
             <Image
@@ -47,13 +47,13 @@ export default async function ExperienceDetailPage({ params }: Props) {
 
           <div className="mt-8 space-y-5">
             <p className="text-sm uppercase tracking-[0.16em] text-amber-300/90">{experience.city}</p>
-            <h1 className="text-4xl font-bold tracking-tight md:text-5xl">{experience.title}</h1>
+            <h1 className="text-2xl font-bold tracking-tight sm:text-4xl md:text-5xl">{experience.title}</h1>
             <p className="text-lg text-zinc-300">{experience.description}</p>
             <p className="text-zinc-200 leading-relaxed">{longDescription}</p>
           </div>
         </div>
 
-        <aside className="space-y-6 rounded-3xl border border-white/10 bg-white/5 p-6 md:p-8">
+        <aside className="space-y-6 rounded-2xl border border-white/10 bg-white/5 p-4 sm:rounded-3xl sm:p-6 md:p-8">
           <div>
             <h2 className="text-lg font-semibold">Highlights</h2>
             <ul className="mt-4 space-y-3 text-sm text-zinc-300">

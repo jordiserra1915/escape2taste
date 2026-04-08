@@ -15,7 +15,7 @@ export function ExperienceCard({ experience }: { experience: Experience }) {
 
   return (
     <article className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 transition hover:border-white/20">
-      <Link href={href} className="relative block h-52">
+      <Link href={href} className="relative block h-44 sm:h-52">
         <Image
           src={experience.image_url}
           alt={experience.title}

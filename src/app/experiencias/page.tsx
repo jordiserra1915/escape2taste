@@ -9,14 +9,14 @@ export default async function ExperiencesPage() {
   const experiences = await getExperiences();
 
   return (
-    <section className="container-site py-14">
-      <h1 className="text-3xl font-bold tracking-tight md:text-5xl">Todas las experiencias</h1>
-      <p className="mt-4 max-w-3xl text-zinc-300">
+    <section className="container-site py-10 sm:py-14">
+      <h1 className="text-2xl font-bold tracking-tight sm:text-3xl md:text-5xl">Todas las experiencias</h1>
+      <p className="mt-3 max-w-3xl text-sm text-zinc-300 sm:mt-4 sm:text-base">
         Elige el reto gastronómico que mejor encaja con tu grupo: urbano, outdoor, nocturno o
         premium.
       </p>
 
-      <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-6 grid gap-4 sm:mt-10 sm:gap-5 md:grid-cols-2 lg:grid-cols-3">
         {experiences.map((experience) => (
           <ExperienceCard key={experience.id} experience={experience} />
         ))}
