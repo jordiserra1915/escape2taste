@@ -1,8 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Calendar, Clock3, MapPin, Tag, Wallet } from "lucide-react";
+import { ArrowUpRight, Calendar, Clock3, MapPin, Sparkles, Tag, Wallet } from "lucide-react";
 import { Experience } from "@/lib/types";
-import { CheckoutButton } from "@/components/checkout-button";
 import { getTravelInfo } from "@/lib/travel-info";
 
 function levelLabel(level: Experience["level"]) {
@@ -70,7 +69,13 @@ export function ExperienceCard({ experience }: { experience: Experience }) {
             Ver destino
             <ArrowUpRight className="h-4 w-4" />
           </Link>
-          <CheckoutButton experienceId={experience.id} />
+          <Link
+            href={`${href}#servicios`}
+            className="inline-flex flex-1 min-w-[140px] items-center justify-center gap-2 rounded-xl bg-amber-500 px-4 py-2 text-sm font-semibold text-zinc-950 transition hover:bg-amber-400"
+          >
+            <Sparkles className="h-4 w-4" />
+            Desde 50 €
+          </Link>
         </div>
       </div>
     </article>

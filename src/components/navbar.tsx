@@ -21,7 +21,10 @@ export function Navbar() {
             Inicio
           </Link>
           <Link href="/experiencias" className="hover:text-amber-400">
-            Experiencias
+            Destinos
+          </Link>
+          <Link href="/servicios" className="hover:text-amber-400">
+            Servicios
           </Link>
           <Link href="/dashboard" className="hover:text-amber-400">
             Dashboard
@@ -64,7 +67,14 @@ export function Navbar() {
               onClick={() => setOpen(false)}
               className="rounded-lg px-3 py-2.5 text-zinc-200 hover:bg-white/10 hover:text-amber-400"
             >
-              Experiencias
+              Destinos
+            </Link>
+            <Link
+              href="/servicios"
+              onClick={() => setOpen(false)}
+              className="rounded-lg px-3 py-2.5 text-zinc-200 hover:bg-white/10 hover:text-amber-400"
+            >
+              Servicios
             </Link>
             <Link
               href="/dashboard"

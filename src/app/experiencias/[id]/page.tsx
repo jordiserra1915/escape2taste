@@ -12,7 +12,7 @@ import {
   Wallet,
   Wrench,
 } from "lucide-react";
-import { CheckoutButton } from "@/components/checkout-button";
+import { ServicePlanSelector } from "@/components/service-plan-selector";
 import { getExperienceContent } from "@/lib/experience-content";
 import { getExperienceById } from "@/lib/experiences";
 import {
@@ -146,18 +146,16 @@ export default async function ExperienceDetailPage({ params }: Props) {
             </div>
           ) : null}
 
-          <div className="flex flex-col gap-3">
+          <div id="servicios" className="space-y-4 scroll-mt-20">
+            <h2 className="text-lg font-semibold">Nuestros servicios</h2>
+            <ServicePlanSelector experienceId={experience.id} compact />
             <a
               href={`/api/ebooks/${experience.id}`}
-              className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm font-semibold text-zinc-100 transition hover:border-amber-400/40 hover:bg-white/10"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm font-semibold text-zinc-100 transition hover:border-amber-400/40 hover:bg-white/10"
             >
               <Download className="h-4 w-4 text-amber-400" />
-              Descargar ebook (PDF)
+              Descargar ebook gratuito (PDF)
             </a>
-            <CheckoutButton experienceId={experience.id} />
-            <p className="text-xs text-zinc-400">
-              El PDF resume highlights y una lista corta de imprescindibles para viajar con buen ritmo.
-            </p>
           </div>
         </aside>
       </div>
