@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Clock3, MapPin, Tag } from "lucide-react";
+import { ArrowUpRight, Calendar, Clock3, MapPin, Tag, Wallet } from "lucide-react";
 import { Experience } from "@/lib/types";
 import { CheckoutButton } from "@/components/checkout-button";
+import { getTravelInfo } from "@/lib/travel-info";
 
 function levelLabel(level: Experience["level"]) {
   if (level === "easy") return "Fácil";
@@ -12,6 +13,7 @@ function levelLabel(level: Experience["level"]) {
 
 export function ExperienceCard({ experience }: { experience: Experience }) {
   const href = `/experiencias/${experience.id}`;
+  const travel = getTravelInfo(experience.id);
 
   return (
     <article className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 transition hover:border-white/20">
@@ -37,14 +39,28 @@ export function ExperienceCard({ experience }: { experience: Experience }) {
             <MapPin className="h-3.5 w-3.5" />
             {experience.city}
           </span>
-          <span className="inline-flex items-center gap-1 rounded-full border border-white/15 px-3 py-1">
-            <Clock3 className="h-3.5 w-3.5" />
-            {experience.duration_hours}h · {levelLabel(experience.level)}
-          </span>
-          <span className="inline-flex items-center gap-1 rounded-full border border-white/15 px-3 py-1">
-            <Tag className="h-3.5 w-3.5" />
-            Desde {experience.price_eur} EUR
-          </span>
+          {travel ? (
+            <span className="inline-flex items-center gap-1 rounded-full border border-white/15 px-3 py-1">
+              <Calendar className="h-3.5 w-3.5" />
+              {travel.days}
+            </span>
+          ) : (
+            <span className="inline-flex items-center gap-1 rounded-full border border-white/15 px-3 py-1">
+              <Clock3 className="h-3.5 w-3.5" />
+              {experience.duration_hours}h · {levelLabel(experience.level)}
+            </span>
+          )}
+          {travel ? (
+            <span className="inline-flex items-center gap-1 rounded-full border border-white/15 px-3 py-1">
+              <Wallet className="h-3.5 w-3.5" />
+              {travel.budgetCouple} / pareja
+            </span>
+          ) : (
+            <span className="inline-flex items-center gap-1 rounded-full border border-white/15 px-3 py-1">
+              <Tag className="h-3.5 w-3.5" />
+              Desde {experience.price_eur} EUR
+            </span>
+          )}
         </div>
         <div className="flex flex-col gap-2 pt-2 sm:flex-row sm:flex-wrap">
           <Link

@@ -1,10 +1,25 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, CheckCircle2, Download } from "lucide-react";
+import {
+  ArrowLeft,
+  Calendar,
+  CheckCircle2,
+  Download,
+  MapPin,
+  Plane,
+  Sun,
+  Wallet,
+  Wrench,
+} from "lucide-react";
 import { CheckoutButton } from "@/components/checkout-button";
 import { getExperienceContent } from "@/lib/experience-content";
 import { getExperienceById } from "@/lib/experiences";
+import {
+  getTravelInfo,
+  getBudgetLabel,
+  getLogisticsColor,
+} from "@/lib/travel-info";
 
 type Props = { params: Promise<{ id: string }> };
 
@@ -21,6 +36,7 @@ export default async function ExperienceDetailPage({ params }: Props) {
   if (!experience) notFound();
 
   const { longDescription, highlights, essentialTips } = getExperienceContent(experience);
+  const travel = getTravelInfo(experience.id);
 
   return (
     <article className="container-site py-8 pb-16 sm:py-12 sm:pb-20">
@@ -54,6 +70,59 @@ export default async function ExperienceDetailPage({ params }: Props) {
         </div>
 
         <aside className="space-y-6 rounded-2xl border border-white/10 bg-white/5 p-4 sm:rounded-3xl sm:p-6 md:p-8">
+          {travel && (
+            <div className="space-y-4">
+              <h2 className="text-lg font-semibold">Información práctica</h2>
+              <div className="grid grid-cols-2 gap-3 text-sm">
+                <div className="flex items-start gap-2.5 rounded-xl border border-white/10 bg-white/5 p-3">
+                  <Calendar className="mt-0.5 h-4 w-4 shrink-0 text-amber-400" />
+                  <div>
+                    <p className="font-medium text-zinc-100">{travel.days}</p>
+                    <p className="text-xs text-zinc-400">Días recomendados</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-2.5 rounded-xl border border-white/10 bg-white/5 p-3">
+                  <Sun className="mt-0.5 h-4 w-4 shrink-0 text-amber-400" />
+                  <div>
+                    <p className="font-medium text-zinc-100">{travel.bestSeason}</p>
+                    <p className="text-xs text-zinc-400">Mejor época</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-2.5 rounded-xl border border-white/10 bg-white/5 p-3">
+                  <Wallet className="mt-0.5 h-4 w-4 shrink-0 text-amber-400" />
+                  <div>
+                    <p className="font-medium text-zinc-100">{travel.budgetCouple}</p>
+                    <p className="text-xs text-zinc-400">Presupuesto pareja</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-2.5 rounded-xl border border-white/10 bg-white/5 p-3">
+                  <Plane className="mt-0.5 h-4 w-4 shrink-0 text-amber-400" />
+                  <div>
+                    <p className="font-medium text-zinc-100">{travel.flightEstimate}</p>
+                    <p className="text-xs text-zinc-400">Vuelo ida/vuelta</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-2.5 rounded-xl border border-white/10 bg-white/5 p-3">
+                  <Wrench className="mt-0.5 h-4 w-4 shrink-0 text-amber-400" />
+                  <div>
+                    <p className={`font-medium ${getLogisticsColor(travel.logistics)}`}>
+                      {travel.logistics.charAt(0).toUpperCase() + travel.logistics.slice(1)}
+                    </p>
+                    <p className="text-xs text-zinc-400">Logística</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-2.5 rounded-xl border border-white/10 bg-white/5 p-3">
+                  <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-amber-400" />
+                  <div>
+                    <p className="font-medium text-zinc-100">{getBudgetLabel(travel.budgetLevel)}</p>
+                    <p className="text-xs text-zinc-400">Nivel presupuesto</p>
+                  </div>
+                </div>
+              </div>
+              <p className="text-xs text-zinc-500">* Presupuesto sin vuelos. Precios orientativos actualizados a 2026.</p>
+            </div>
+          )}
+
           <div>
             <h2 className="text-lg font-semibold">Highlights</h2>
             <ul className="mt-4 space-y-3 text-sm text-zinc-300">
