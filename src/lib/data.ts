@@ -35,7 +35,7 @@ export const fallbackExperiences: Experience[] = [
     level: "hard",
     price_eur: 139,
     image_url:
-      "https://images.unsplash.com/photo-1477414956199-0c77f3c0e7dd?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=1200&q=80",
     description:
       "La famosa pizza deep dish, hot dogs estilo Chicago y noches de música en bares legendarios.",
     tags: ["américa", "pizza", "música"]
