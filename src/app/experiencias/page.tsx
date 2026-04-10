@@ -1,6 +1,8 @@
 import { ExperienceCard } from "@/components/experience-card";
 import { getExperiences } from "@/lib/experiences";
 
+export const revalidate = 60;
+
 export const metadata = {
   title: "Experiencias | Escape2Taste"
 };
