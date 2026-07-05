@@ -63,6 +63,22 @@ export default async function ExperienceDetailPage({ params }: Props) {
             />
           </div>
 
+          {experience.gallery && experience.gallery.length > 1 && (
+            <div className="mt-3 grid grid-cols-3 gap-2 sm:grid-cols-4">
+              {experience.gallery.slice(1, 9).map((src, i) => (
+                <div key={src} className="relative aspect-square overflow-hidden rounded-xl border border-white/10">
+                  <Image
+                    src={src}
+                    alt={`${experience.city} foto ${i + 2}`}
+                    fill
+                    className="object-cover transition duration-300 hover:scale-105"
+                    sizes="(max-width: 640px) 33vw, 20vw"
+                  />
+                </div>
+              ))}
+            </div>
+          )}
+
           <div className="mt-8 space-y-5">
             <p className="text-sm uppercase tracking-[0.16em] text-amber-300/90">{experience.city}</p>
             <h1 className="text-2xl font-bold tracking-tight sm:text-4xl md:text-5xl">{experience.title}</h1>

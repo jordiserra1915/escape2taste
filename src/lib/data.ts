@@ -94,16 +94,16 @@ export const fallbackExperiences: Experience[] = [
   },
   {
     id: "japon",
-    title: "Japón · Luces de Neón y Sushi",
+    title: "Japón · Tradición, Sabor y Asombro",
     city: "Japón",
     duration_hours: 6,
     level: "intermediate",
     price_eur: 199,
-    image_url:
-      "https://images.unsplash.com/photo-1492571350019-22de08371fd3?auto=format&fit=crop&w=1200&q=80",
+    image_url: "/images/japon/japon-1.webp",
     description:
-      "Izakayas ruidosas, ramen nocturno, trenes bala y mezcla única de tradición y cultura pop.",
-    tags: ["asia", "sushi", "urbano"]
+      "Templos milenarios, mercados de barrio, ramen nocturno e izakayas donde la gastronomía japonesa te cuenta la historia del país.",
+    tags: ["asia", "gastronomía", "cultura"],
+    gallery: Array.from({ length: 17 }, (_, i) => `/images/japon/japon-${i + 1}.webp`),
   },
   {
     id: "singapur",

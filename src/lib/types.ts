@@ -11,6 +11,8 @@ export type Experience = {
   /** Texto largo para ficha; si falta, se usa contenido editorial local o `description`. */
   long_description?: string | null;
   highlights?: string[] | null;
+  /** URLs de fotos para la galería de la ficha de detalle. */
+  gallery?: string[];
 };
 
 export type BookingPayload = {
