@@ -40,5 +40,9 @@ export async function getExperienceById(id: string): Promise<Experience | null> 
     return fallbackExperiences.find((item) => item.id === id) ?? null;
   }
 
-  return normalizeExperienceRow(data as Record<string, unknown>);
+  const normalized = normalizeExperienceRow(data as Record<string, unknown>);
+  // Merge gallery from static data if Supabase doesn't have it
+  const staticEntry = fallbackExperiences.find((e) => e.id === id);
+  if (staticEntry?.gallery) normalized.gallery = staticEntry.gallery;
+  return normalized;
 }
